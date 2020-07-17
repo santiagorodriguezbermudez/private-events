@@ -1,16 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<% current_events = @user.created_events %>
+<h1>Events</h1>
 
 <table>
   <thead>
@@ -23,15 +12,13 @@
   </thead>
 
   <tbody>
-    <% current_events.each do |event| %>
+    <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.location %></td>
         <td><%= event.date %></td>
         <td><%= link_to 'Show', event %></td>
-      </tr>
+       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Back', users_path %>
