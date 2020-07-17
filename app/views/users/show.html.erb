@@ -10,7 +10,27 @@
   <%= @user.email %>
 </p>
 
-<% @user.pluck(:event)%>
+<% current_events = @user.created_events %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.location %></td>
+        <td><%= event.date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Back', users_path %>
