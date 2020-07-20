@@ -24,6 +24,8 @@
 
 <h2>List of attendees</h2>
 
+<% list_attendees = @event.attendees.pluck(:username, :email)%>
+
 <table>
   <thead>
     <tr>
@@ -32,14 +34,14 @@
       <th colspan="2"></th>
     </tr>
   </thead>
-
+  
   <tbody>
-    <% @event.attendees.each do |attendee| %>
+    <% list_attendees.each do | attendee | %>
       <tr>
-        <td><%= attendee.username %></td>
-        <td><%= attendee.email %></td>
+        <td><%= attendee[0] %></td>
+        <td><%= attendee[1] %></td>
        </tr>
     <% end %>
   </tbody>
-  
+
 </table>
