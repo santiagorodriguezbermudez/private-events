@@ -34,4 +34,32 @@
   </tbody>
 </table>
 
+<h2>List of events to be attended</h2>
+
+<% list_events = @user.attended_events.pluck(:name, :date, :location, :description)%>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event name</th>
+      <th>Event Date</th>
+      <th>Event location</th>
+      <th>Event description</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% list_events.each do | event | %>
+      <tr>
+        <td><%= event[0] %></td>
+        <td><%= event[1] %></td>
+        <td><%= event[2] %></td>
+        <td><%= event[3] %></td>
+       </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
 <%= link_to 'Back', users_path %>
