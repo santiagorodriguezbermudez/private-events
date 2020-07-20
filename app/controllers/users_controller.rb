@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @upcoming = self.upcoming
+    @past = self.past
   end
 
   # GET /users/new
@@ -62,6 +64,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -75,5 +78,19 @@ class UsersController < ApplicationController
 
     def log_in
 
+    end
+
+    def upcoming
+      result = current_user.attended_events.pluck(:name, :date, :location, :description)
+      result.select do |i|
+        i[1] > Date.current
+      end
+    end
+
+    def past
+      result = current_user.attended_events.pluck(:name, :date, :location, :description)
+      result.select do |i|
+        i[1] < Date.current
+      end
     end
 end
