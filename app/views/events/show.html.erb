@@ -21,3 +21,25 @@
        </tr>
   </tbody>
 </table>
+
+<h2>List of attendees</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attendee name</th>
+      <th>Email</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event.attendees.each do |attendee| %>
+      <tr>
+        <td><%= attendee.username %></td>
+        <td><%= attendee.email %></td>
+       </tr>
+    <% end %>
+  </tbody>
+  
+</table>
