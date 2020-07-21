@@ -1,5 +1,7 @@
 
-<h1>Events</h1>
+<h1>Upcoming Events</h1>
+
+<% upcoming_events = @upcoming %>
 
 <table>
   <thead>
@@ -12,13 +14,53 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.location %></td>
-        <td><%= event.date %></td>
-        <td><%= link_to 'Show', event %></td>
-       </tr>
-    <% end %>
+
+    <% if upcoming_events == nil %>
+      <p> No upcoming events to show </p>
+    <% else %> 
+      <% upcoming_events.each do |event| %>
+        <tr>
+          <td><%= event[0] %></td>
+          <td><%= event[2] %></td>
+          <td><%= event[1] %></td>
+          <td><%= link_to 'Show', "events/#{event[4]}" %></td>
+        </tr>
+      <% end %>
+    <% end %> 
   </tbody>
+
+
+</table>
+
+<h1>Past Events</h1>
+
+<% past_events = @past %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% if past_events == nil %>
+      <p> No past events to show </p>
+    <% else %> 
+      <% past_events.each do |event| %>
+        <tr>
+          <td><%= event[0] %></td>
+          <td><%= event[2] %></td>
+          <td><%= event[1] %></td>
+          <td><%= link_to 'Show', "events/#{event[4]}" %></td>
+        </tr>
+      <% end %>
+    <% end %> 
+  </tbody>
+
+
 </table>

@@ -10,6 +10,9 @@ class EventsController < ApplicationController
 
     def index
         @events = Event.all
+        @upcoming = self.upcoming
+        @past = self.past
+
     end
 
     def create
@@ -32,5 +35,18 @@ class EventsController < ApplicationController
         params.require(:event).permit(:name, :location, :date, :description)
     end
 
+    def upcoming
+      upcoming_events = @events.pluck(:name, :date, :location, :description, :id)
+      upcoming_events.select do |event|
+        event[1] >= Date.current
+      end
+    end
+
+    def past
+      upcoming_events = @events.pluck(:name, :date, :location, :description, :id)
+      upcoming_events.select do |event|
+        event[1] < Date.current
+      end
+    end
     
 end
