@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   # # GET /users
   # # GET /users.json
@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @upcoming = self.upcoming
-    @past = self.past
+    @upcoming = upcoming
+    @past = past
   end
 
   # GET /users/new
@@ -20,8 +20,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json
@@ -64,33 +63,31 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:username, :email)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def log_in
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:username, :email)
+  end
 
-    end
+  def log_in; end
 
-    def upcoming
-      result = current_user.attended_events.pluck(:name, :date, :location, :description)
-      result.select do |i|
-        i[1] > Date.current
-      end
+  def upcoming
+    result = current_user.attended_events.pluck(:name, :date, :location, :description)
+    result.select do |i|
+      i[1] > Date.current
     end
+  end
 
-    def past
-      result = current_user.attended_events.pluck(:name, :date, :location, :description)
-      result.select do |i|
-        i[1] < Date.current
-      end
+  def past
+    result = current_user.attended_events.pluck(:name, :date, :location, :description)
+    result.select do |i|
+      i[1] < Date.current
     end
+  end
 end
