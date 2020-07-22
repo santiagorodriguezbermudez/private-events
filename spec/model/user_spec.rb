@@ -14,8 +14,18 @@ RSpec.describe User do
       expect(subject).to be_valid
     end
 
-    it 'The username should exist' do
-      subject.username = ''
+    it 'The date should exist' do
+      subject.date = ''
+      expect(subject).to_not be_valid
+    end
+
+    it 'The name of the event should exist' do
+      subject.name = ''
+      expect(subject).to_not be_valid
+    end
+
+    it 'The description should exist' do
+      subject.description = ''
       expect(subject).to_not be_valid
     end
 

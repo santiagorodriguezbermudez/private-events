@@ -5,7 +5,7 @@ RSpec.describe Event do
   let(:subject) do
     described_class.new(
       name: 'new job offer',
-      location: 'Example location'
+      location: 'Example location',
       date: '2020-08-10',
       creator_id: test_user.id,
       description: 'Hello this is a test description'
