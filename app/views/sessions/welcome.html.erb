@@ -1,4 +1,8 @@
 <h1>Welcome to your Private Event</h1>
 
-<%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", '/users/new', method: :get%>
+<% unless logged_in?%>
+    <%= button_to "Login", '/login', method: :get%> <br>
+    <%= button_to "Sign Up", '/users/new', method: :get%>
+<% else %>
+    <%= button_to "Logout", destroy_path, method: :post%>
+<% end%>
