@@ -24,6 +24,12 @@
 
 <h2>List of attendees</h2>
 
+<%= form_tag("/invite", method: "post", class: 'event_show_form') do %>
+    <%= hidden_field_tag(:event_id, @event.id) %> 
+    <%= text_field_tag :username, nil, placeholder: 'invite attendee by username' %>
+    <%= submit_tag("invite") %>
+<% end %> 
+
 <% list_attendees = @event.attendees.pluck(:username, :email)%>
 
 <table>

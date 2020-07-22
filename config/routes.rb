@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
   post 'destroy', to: 'sessions#destroy'
-  
+  post 'invite', to: 'events#invite'
+
   root 'sessions#welcome'
 end
