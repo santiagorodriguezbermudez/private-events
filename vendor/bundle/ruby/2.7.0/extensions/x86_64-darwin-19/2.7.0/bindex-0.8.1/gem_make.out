@@ -1,0 +1,15 @@
+current directory: /Users/santiagorodriguezb./Documents/Microverse/Course/private-events/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/santiagorodriguezb./.rbenv/versions/2.7.0/bin/ruby -I /Users/santiagorodriguezb./.rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20200722-5138-1jfr4m6.rb extconf.rb
+creating Makefile
+
+current directory: /Users/santiagorodriguezb./Documents/Microverse/Course/private-events/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/santiagorodriguezb./Documents/Microverse/Course/private-events/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/santiagorodriguezb./Documents/Microverse/Course/private-events/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20200722-5138-141v49g/skiptrace/internal

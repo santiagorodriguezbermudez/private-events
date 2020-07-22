@@ -43,7 +43,7 @@ RSpec.describe Event do
     end
   end
 
-  describe 'Associations' do
+  describe 'Associations', type: :model do
     it { should belong_to(:creator) }
     it { should have_many(:attendees) }
   end

@@ -2,6 +2,8 @@
 require 'spec_helper'
 require 'capybara/rspec'
 ENV['RAILS_ENV'] ||= 'test'
+require 'rubygems'
+require 'rspec/autorun'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
@@ -63,3 +65,12 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
+Capybara.default_driver = :selenium_chrome

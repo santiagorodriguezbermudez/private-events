@@ -2,8 +2,12 @@
 require 'rails_helper'
 
 RSpec.describe UserEvent do
+  let(:test_user) { User.create(username: 'Example User', email: 'test@gmail.com') }
+  let(:test_event) { Event.create(name: 'Example User', location: 'test', date: '2020-08-04', description: 'test', creator_id: test_user.id) }
 
   let(:subject) do
+    test_user
+    test_event
     described_class.new(
       attendee_id: 1,
       attended_event_id: 1
@@ -24,10 +28,10 @@ RSpec.describe UserEvent do
       subject.attended_event_id = ''
       expect(subject).to_not be_valid
     end
-    
+
   end
   
-  describe 'Associations' do
+  describe 'Associations', type: :model do
     it { should belong_to(:attendee) }
     it { should belong_to(:attended_event) }
   end

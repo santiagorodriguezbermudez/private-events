@@ -14,18 +14,8 @@ RSpec.describe User do
       expect(subject).to be_valid
     end
 
-    it 'The date should exist' do
-      subject.date = ''
-      expect(subject).to_not be_valid
-    end
-
     it 'The name of the event should exist' do
-      subject.name = ''
-      expect(subject).to_not be_valid
-    end
-
-    it 'The description should exist' do
-      subject.description = ''
+      subject.username = ''
       expect(subject).to_not be_valid
     end
 
@@ -41,7 +31,7 @@ RSpec.describe User do
 
   end
 
-  describe 'Associations' do
+  describe 'Associations', type: :model do
     it { should have_many(:created_events) }
     it { should have_many(:attended_events) }
   end
