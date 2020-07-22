@@ -80,7 +80,7 @@ class UsersController < ApplicationController
   def upcoming
     result = current_user.attended_events.pluck(:name, :date, :location, :description)
     result.select do |i|
-      i[1] > Date.current
+      i[1] >= Date.current
     end
   end
 
