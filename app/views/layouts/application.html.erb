@@ -17,7 +17,8 @@
       <li><%= link_to 'All Events', events_path %></li>
       <% if logged_in? %>
         <li><%= link_to 'My Profile', "/users/#{current_user.id}" %></li>
-        <li><%= link_to 'Sign out', destroy_path, method: :post %></li>
+        <li><%= link_to 'Create event', new_event_path %></li>
+        <li><%= link_to 'Logout', destroy_path, method: :post %></li>
       <% end %>
 
     </ul>
