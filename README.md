@@ -10,6 +10,10 @@ Create a Ruby on Rails App to learn how to manage user sessions with Devise gem 
 - inside your browser go to http://localhost:3000/, changing the port number in case you chose a custom one.
 - explore the application.
 
+## Instructions
+- create an account by clicking sign in and filling in the form
+- use the navigation bar on top to create an event, see all events, check out your profile or go back to the home page.
+
 ## Built With
 - Ruby on Rails version 5.2.4.3
 
