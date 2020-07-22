@@ -18,12 +18,22 @@ RSpec.describe Event do
     end
 
     it 'is not valid without a name' do
-      subject.title = nil
+      subject.name = nil
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid without a content' do
-      subject.event_date = nil
+    it 'is not valid without a date' do
+      subject.date = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without a location' do
+      subject.location = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without a description' do
+      subject.description = nil
       expect(subject).to_not be_valid
     end
 
@@ -31,15 +41,10 @@ RSpec.describe Event do
       subject.creator_id = nil
       expect(subject).to_not be_valid
     end
-
-    it 'should not allow a name longer than 100 characters' do
-      subject.title = 'a' * 101
-      expect(subject).to_not be_valid
-    end
   end
 
   describe 'Associations' do
     it { should belong_to(:creator) }
-    it { should have_many(:invitees) }
+    it { should have_many(:attendees) }
   end
 end
