@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User do
-
   let(:subject) do
     described_class.new(
       username: 'user_example',
@@ -28,7 +27,6 @@ RSpec.describe User do
       subject.email = 'hello'
       expect(subject).to_not be_valid
     end
-
   end
 
   describe 'Associations', type: :model do
