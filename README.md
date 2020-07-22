@@ -5,8 +5,10 @@ Create a Ruby on Rails App to learn how to manage user sessions with Devise gem 
 ## Getting Started
 - Fork the repository and create a local one on your computer
 - Move to the repository inside the command line using `cd` and the path to the file
-- Run `bundle install`
-- Run `Rails server` to check out the app on your local host. 
+- Run `bundle install` and `rails db:migrate`
+- Run `rails server` (in case you already have something running on port 3000 run `rails server -p 3001` where the number can be any port you want.)
+- inside your browser go to http://localhost:3000/, changing the port number in case you chose a custom one.
+- explore the application.
 
 ## Built With
 - Ruby on Rails version 5.2.4.3
