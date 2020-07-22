@@ -78,14 +78,14 @@ class UsersController < ApplicationController
   def log_in; end
 
   def upcoming
-    result = current_user.attended_events.pluck(:name, :date, :location, :description)
+    result = @user.attended_events.pluck(:name, :date, :location, :description)
     result.select do |i|
       i[1] >= Date.current
     end
   end
 
   def past
-    result = current_user.attended_events.pluck(:name, :date, :location, :description)
+    result = @user.attended_events.pluck(:name, :date, :location, :description)
     result.select do |i|
       i[1] < Date.current
     end
