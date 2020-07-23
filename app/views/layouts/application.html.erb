@@ -10,6 +10,25 @@
   </head>
 
   <body>
+
+  <nav>
+    <ul>
+      <li><%= link_to 'Home', :root %></li>
+      <li><%= link_to 'All Events', events_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to 'My Profile', "/users/#{current_user.id}" %></li>
+        <li><%= link_to 'Create event', new_event_path %></li>
+        <li><%= link_to 'Logout', destroy_path, method: :post %></li>
+      <% end %>
+
+    </ul>
+  </nav>
+
+  <% if logged_in? %>
+    <p>You are Logged In, <%= current_user.username %></p>
+  <%else%>
+    <p>Please log in</p>
+  <%end%>
     <%= yield %>
   </body>
 </html>

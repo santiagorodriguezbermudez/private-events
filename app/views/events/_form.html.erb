@@ -1,0 +1,23 @@
+<%= form_for @event do |f| %>
+    <%= f.label :name, 'Please enter event name:' %>
+    <%= f.text_field :name, placeholder: "Event name" %><br>
+    <%= f.label :location, 'Please enter event location' %>
+    <%= f.text_field :location, placeholder: "city name" %><br>
+    <%= f.label :date, 'Please enter date of the event:' %>
+    <%= f.date_select :date %><br>
+    <%= f.label :description, 'What kind of event are you organizing' %>
+    <%= f.text_field :description %><br>
+    <%= f.submit%>
+<% end %>
+    
+<% if @event.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@event.errors.count, "error") %> prohibited this user from being updated:</h2>
+        
+        <ul>
+            <% @event.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %> 
